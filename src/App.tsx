@@ -5,8 +5,21 @@ import FeedbackList from "./components/FeedbackList";
 import HeaderTabs from "./components/HeaderTabs";
 import FeedbackForm from "./components/FeedbackForm";
 
+export interface Feedback {
+  title: string;
+  category: string;
+  details: string;
+}
+
 function App() {
   const [isFeedbackClicked, setIsFeedbackClicked] = useState<boolean>(false);
+  const [feedbackList, setFeedbackList] = useState<Array<Feedback>>([
+    {
+      title: "Improve UI",
+      category: "UI",
+      details: "UI can be improved",
+    },
+  ]);
   return (
     <main>
       <HeaderTabs />
@@ -15,7 +28,16 @@ function App() {
           isFeedbackClicked={isFeedbackClicked}
           setIsFeedbackClicked={setIsFeedbackClicked}
         />
-        {isFeedbackClicked ? <FeedbackForm /> : <FeedbackList />}
+        {isFeedbackClicked ? (
+          <FeedbackForm
+            isFeedbackClicked={isFeedbackClicked}
+            setIsFeedbackClicked={setIsFeedbackClicked}
+            feedbackList={feedbackList}
+            setFeedbackList={setFeedbackList}
+          />
+        ) : (
+          <FeedbackList feedbackList={feedbackList} />
+        )}
       </section>
     </main>
   );

@@ -1,8 +1,14 @@
 import { useState } from "react";
-
-const FeedbackForm = () => {
+import { Feedback } from "../App";
+interface FeedbackFormProps {
+  isFeedbackClicked: boolean;
+  setIsFeedbackClicked: (isClicked: boolean) => void;
+  feedbackList: Array<Feedback>;
+  setFeedbackList: (feedbackList: any) => void;
+}
+const FeedbackForm = (props: FeedbackFormProps) => {
   const [title, setTitle] = useState<string>("");
-  const [category, setCategory] = useState<string>("");
+  const [category, setCategory] = useState<string>("UI");
   const [details, setDetails] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -12,8 +18,24 @@ const FeedbackForm = () => {
 
     if (!(submitter instanceof HTMLButtonElement)) return;
 
-    
+    if (submitter.name === "cancel") {
+      props.setIsFeedbackClicked(false);
+      return;
+    }
+
+    if (title.trim() === "" || category.trim() === "" || details.trim() === "")
+      return;
+
+    const feedbackObj = {
+      title: title,
+      category: category,
+      details: details,
+    };
+
+    props.setFeedbackList([...props.feedbackList, feedbackObj]);
+    props.setIsFeedbackClicked(false);
   };
+  console.log(props.feedbackList);
   return (
     <div className="feedback-form">
       <h3>Create new feedback</h3>

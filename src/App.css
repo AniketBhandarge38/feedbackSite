@@ -124,3 +124,10 @@ main {
   padding: 0.5rem;
   width: 100%;
 }
+
+
+.feedback-card {
+  background-color: #fff;
+  padding: 1rem;
+  margin-block: 1rem;
+}
