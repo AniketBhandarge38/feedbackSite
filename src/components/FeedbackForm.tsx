@@ -30,6 +30,8 @@ const FeedbackForm = (props: FeedbackFormProps) => {
       title: title,
       category: category,
       details: details,
+      upvotes: 0,
+      comments: [],
     };
 
     props.setFeedbackList([...props.feedbackList, feedbackObj]);

@@ -4,6 +4,10 @@ main {
   gap: 2rem;
 }
 
+h3 {
+  color: #36454f;
+}
+
 .common-btn {
   background-color: #c850c0;
   color: #fff;
@@ -130,4 +134,35 @@ main {
   background-color: #fff;
   padding: 1rem;
   margin-block: 1rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.feedback-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.3rem;
+  margin-left: 2rem;
+}
+
+.feedback-card span {
+  background-color: #f7f8fd;
+  padding: 2px 1rem;
+  color: #4158d0;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.feedback-details-btn {
+  background-color: #f7f8fd;
+  padding: 0.7rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: medium;
+  font-weight: 600;
 }

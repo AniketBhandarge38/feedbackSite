@@ -9,6 +9,8 @@ export interface Feedback {
   title: string;
   category: string;
   details: string;
+  upvotes?: number;
+  comments?: Array<string>;
 }
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
       title: "Improve UI",
       category: "UI",
       details: "UI can be improved",
+      upvotes: 12,
+      comments: ["That can be done", "It is under review"],
     },
   ]);
   return (
